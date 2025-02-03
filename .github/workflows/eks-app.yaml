@@ -72,7 +72,8 @@ jobs:
     - name: Set up Image
       run: |
         sed -i "s%image: ${{ secrets.AWS_ECR_ID }}.dkr.ecr.${{ secrets.AWS_ECR_REGION }}.amazonaws.com/${{ secrets.AWS_ECR_REPOSITORY }}:[a-zA-Z0-9]*%image: ${{ secrets.AWS_ECR_ID }}.dkr.ecr.${{ secrets.AWS_ECR_REGION }}.amazonaws.com/${{ secrets.AWS_ECR_REPOSITORY }}:${{ github.sha }}%" ./manifest/eks-app.yaml
-
+        cat ./manifest/eks-app.yaml
+        
     - name: Commit and push changes
       run: |
         git config --local user.email "${{ secrets.G_USER_EMAIL }}"
