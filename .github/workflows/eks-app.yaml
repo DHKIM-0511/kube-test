@@ -76,7 +76,7 @@ jobs:
     - name: Commit and push changes
       run: |
         git config --local user.email "${{ secrets.G_USER_EMAIL }}"
-        git config --local user.name "${{ secrets.G_USER }}"
+        git config --local user.name "${{ secrets.G_USER_NAME }}"
         git add .
         git commit -m "Update application image version for ArgoCD"
         git push
